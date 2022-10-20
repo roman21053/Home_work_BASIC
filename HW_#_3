@@ -1,5 +1,4 @@
 # 1. Define the id of next variables:
-
 int_a = 55
 str_b = 'cursor'
 set_c = {1, 2, 3}
@@ -11,28 +10,72 @@ variables = [int_a, str_b, set_c, lst_d, dict_e]
 for variabl in variables:
     print(f"The id for variable {variabl} is: ", id(variabl))
 
+
 # 2. Append 4 and 5 to the lst_d and define the id one more time.
+lst_d.append(4)
+lst_d.append(5)
+print(f"After append 4 and 5 the id for variable lst_d = {lst_d} is: ", id(lst_d))
+print()
 
-variables = [int_a, str_b, set_c, lst_d.append(dict_e), dict_e]
-
-for variabl in variables:
-    print(f"The id for variable {variabl} is: ", id(variabl))
 
 # 3. Define the type of each object from step 1.
+for variabl in variables:
+    print(f"The type of object {variabl} is: ", type(variabl))
+print()
+
 
 # 4*. Check the type of the objects by using isinstance.
+print(f"Is the data type for '{int_a}' a integer? - {isinstance(int_a, int)}")
+print(f"Is the data type for '{str_b}' a string? - {isinstance(str_b, str)}")
+print(f"Is the data type for '{set_c}' a set of data? - {isinstance(set_c, set)}")
+print(f"Is the data type for '{lst_d}' a list? - {isinstance(lst_d, list)}")
+print(f"Is the data type for '{dict_e}' a dictionary? - {isinstance(dict_e, dict)}")
+print()
 
-String formatting:
+
+"""String formatting:
 Replace the placeholders with a value:
 "Anna has ___ apples and ___ peaches."
-
+"""
 # 5. With .format and curly braces {}
+apples = 10
+peaches = 5
+
+print("Anna has {} apples and {} peaches." .format(apples, peaches))
+print()
+
+
 # 6. By passing index numbers into the curly braces.
+print("Anna has {0} apples and {1} peaches." .format(apples, peaches))
+print()
+
+
 # 7. By using keyword arguments into the curly braces.
+print("Anna has {apple} apples and {peach} peaches." .format(apple=apples, peach=peaches))
+print()
+
+
 # 8*. With indicators of field size (5 chars for the first and 3 for the second)
+print("Anna has {0:^5} apples and {1:^3} peaches." .format(apples, peaches))
+print()
+
+
 # 9. With f-strings and variables
+print(f"Anna has {apples} apples and {peaches} peaches." )
+print()
+
+
 # 10. With % operator
+print("Anna has %d apples and %d peaches." % (apples, peaches))
+print()
+
+
 # 11*. With variable substitutions by name (hint: by using dict)
+fruit_dict = {'apples': apples, 'peaches': peaches}
+
+print(f"Anna has {fruit_dict.get('apples')} apples and {fruit_dict.get('apples')} peaches.")
+print()
+
 
 Comprehensions:
 (1)
@@ -46,6 +89,7 @@ print(lst)
 
 (2)
 list_comprehension = [num // 2 if num % 2 == 0 else num * 10 for num in range(10)]
+
 
 # 12. Convert (1) to list comprehension
 # 13. Convert (2) to regular for with if-else
@@ -71,6 +115,7 @@ dict_comprehension = {x: x**3 for x in range(10) if x**3 % 4 == 0}
 
 (6)
 dict_comprehension = {x: x**3 if x**3 % 4 == 0 else x for x in range(10)}
+
 
 # 14. Convert (3) to dict comprehension.
 # 15*. Convert (4) to dict comprehension.
