@@ -88,8 +88,8 @@ print(f"Anna has {fruit_dict.get('apples')} apples and {fruit_dict.get('apples')
 print()
 
 
-# Comprehensions:
-"""(1)
+""" Comprehensions:
+(1)
 lst = []
 for num in range(10):
     if num % 2 == 1:
@@ -119,7 +119,6 @@ for num in range(10):
         lst.append(num * 10)
 print(lst)
 print()
-
 
 """(3)
 d = {}
@@ -177,7 +176,6 @@ for x in range(10):
         dict_comprehension_for_5[x] = x
 print(dict_comprehension_for_5)
 print()
-
 
 """Lambda:
 
@@ -269,7 +267,5 @@ print()
 print("task #26")
 list_1 = [1,2,3,5,7,9]
 list_2 = [2,3,5,6,7,8]
-
 common_values = list(filter(lambda number: number in list_2, list_1))
 print(common_values)
-print()
