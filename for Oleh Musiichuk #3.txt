@@ -1,0 +1,55 @@
+#task_2
+print("task_2")
+lst_d = [1, 2, 3, 4, 5]
+print(id(lst_d))
+
+- в цьому завданні ти мав додати до діючої змінної 4, 5 якимось методом python,
+  і побачити що id цього значення неміняється, бо це змінний тип даних. 
+ А ти просто створив нову змінну і присвоїв їй назву попередньої. 
+ Тепер python відвязав адрес памяті від попередньої змінної і привязав цю назву  до 
+нового адресу. 
+
+
+
+#task_10
+print("Anna has %s apples and %s peaches."%(2,4))
+
+- начебто все працює. І я не знаток цього методу. 
+  але може краще було б використати %d так як це
+  все таки цілі числа. Хоч код практично працює 
+  і з тим , і з тим варіантом.
+
+- печатай будь-ласка результати, і бажано номери завдання. Бо щоб перевірити
+  результат, код доводиться редактувати,
+  а це наш час затрачений для перевірки. Дякую.
+
+
+
+#task_24
+lst = [x for x in lst_to_sort if x % 2 == 1]
+
+- результат правильний, метод ні:
+"24. Use filter and lambda to filter the number of a lst_to_sort with elem % 2 == 1."
+
+
+
+#task_25
+lst_1 = [x for x in range(-10,10) if x < 0]
+
+- результат правильний, метод ні:
+"25. Considering the range of values: b = range(-10, 10), use the function filter to return only negative numbers."
+
+
+
+# task_26
+print("task_26")
+list_1 = [1,2,3,5,7,9]
+list_2 = [2,3,5,6,7,8]
+
+lst = [x for x in list_1 if x in list_2]
+print(lst)
+
+- результат правильний, метод ні:
+"26*. Using the filter function, find the values that are common to the two lists:"
+
+  

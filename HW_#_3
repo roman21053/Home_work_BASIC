@@ -168,13 +168,13 @@ print()
 
 # 17*. Convert (6) to regular for with if-else.
 print("task #17")
-dict_comprehension_for_5 ={}
+dict_comprehension_for_6 ={}
 for x in range(10):
     if x**3 % 4 == 0:
-        dict_comprehension_for_5[x] = x**3
+        dict_comprehension_for_6[x] = x**3
     else:
-        dict_comprehension_for_5[x] = x
-print(dict_comprehension_for_5)
+        dict_comprehension_for_6[x] = x
+print(dict_comprehension_for_6)
 print()
 
 """Lambda:

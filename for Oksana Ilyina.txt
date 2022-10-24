@@ -7,6 +7,7 @@ print(id(lst_d))
 на мою думку недолік альтернативного методу в тому що він використовує уже смінений список і 
 ще раз додає до нього 4 і 5, а це суперечить умові завдання.
 
+
 # 11. With variable substitutions by name (hint: by using dict)
 # dict comprehension
 dict = {"apples": 5, "peaches": 7}
@@ -14,6 +15,11 @@ print(f"Anna has {apples} apples and {peaches} peaches.")
 
 цей код не працює: зсилатися на словник краще через dict['apples'], або dict.get('apples'), 
 якщо хочеш доступитися до значення ключа.
+
+або ще такий метод (знайшов у інших домашніх завданнях):
+dict = {'apple' : 3, 'peache' : 2}
+print("Anna has {apple} apples and {peache} peaches.".format(**dict))
+
 
 # 16. Convert (5) to regular for with if:
 dict_comprehension = {}
@@ -25,4 +31,4 @@ print(dict_comprehension)
 цей код непрацює: "d[x] = x ** 3" Пояснень не дам, подумай. :)
 
 
-P.S:   і ще було би значно зручніше , як би на виході розділити відповіді хоча б номерами завдань. 
+P.S:   і ще було би значно зручніше читати, як би на виході розділити відповіді хоча б номерами завдань. 
