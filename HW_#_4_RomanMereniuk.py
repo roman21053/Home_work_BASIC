@@ -59,6 +59,7 @@ class Bear:
     def eat(self):
         print(f"A bears eats {self.eats}")
 
+
 class Wolf:
     def __init__(self, area_of_residence, fur_color, eats):
         self.area_of_residence = area_of_residence
@@ -80,6 +81,18 @@ for animals_eat in (white_bear, grey_wolf):
 # 8*. Створіть клас City з атрибутами екземпляра name i population, сторіть новий екземпляр цього класу, лише коли population > 1500,
 # інакше повертається повідомлення: "Your city is too small". Підказка: використовуєте для цього завдання магічні методи
 class City:
+    def __new__(self, name, population):
+        self.name = name
+        self.population = population
+        if population > 1500:
+            return object().__new__(City)
+        else:
+            return "Your city is too small"
+
     def __init__(self, name, population):
         self.name = name
         self.population = population
+
+
+city = City("Lviv", 900000)
+print(city)
