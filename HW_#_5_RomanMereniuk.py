@@ -1,32 +1,86 @@
-# 1.
+# 1. Make the class with composition.
+# Cуть задуму в тому, що в class Laptop створено об'єкти з рекомендаціями ємності акумуляторних батарей
+# для "ноутбуків" на базі class Battery. Коли я створюю об'єкт class Laptop і ввожу параметри ноубука, 
+# то отримую рекомендації з підбору ємності акумуляторної батареї. Деталізації структури тут не робив.
+print("task 1.")
 class Laptop:
-    """
-    Make the class with composition.
-    """
-class Battery:
-    """
-    Make the class with composition.
-    """
+    def __init__(self, brand_of_laptop, screen_size):
+        self.brand_of_laptop = print(brand_of_laptop)
+        self.screen_size = print(f"{screen_size} inches")
+        inch_14 = Battery("battery for 14 inch screen - ", 45)
+        inch_15 = Battery("battery for 15 inch screen - ", 52)
+        inch_17 = Battery("battery for 17 inch screen - ", 62)
+        self.laptop = [f"{inch_14.text}{inch_14.battery_capacity} Wh",
+                       f"{inch_15.text}{inch_15.battery_capacity} Wh", 
+                       f"{inch_17.text}{inch_17.battery_capacity} Wh"
+                       ]
 
-# 2.
+class Battery:
+    def __init__(self, text, battery_capacity: int):
+        self.text = text
+        self.battery_capacity = battery_capacity
+
+laptop = Laptop("dell", 14)
+print(laptop.laptop)
+print()
+
+
+# 2. Make the class with aggregation
+# Cуть задуму в тому, що виводиться позначення нот для кожної налаштованої струни в гітарах з різною кількістю струн.
+print("task 2.")
 class Guitar:
-    """
-    Make the class with aggregation
-    """
+    def __init__(self, producer, number_of_strings):
+        self.producer = print(f"Guitar brand is - '{producer}'")
+        self.number_of_strings = number_of_strings
+
 class GuitarString:
-    """
-    Make the class with aggregation
-    """
-# 3.
+    def __init__(self, string_number):
+        self.string_number = string_number
+        if self.string_number == 6:
+            print("""
+                A first string - note 'E'
+                A second string - note 'B'
+                A third string - note 'G'
+                A fourth string - note 'D'
+                A fifth string - note 'A'
+                A sixth string - note 'E'
+                """)
+        elif self.string_number == 7:
+            print("A first string - note 'd1'\
+                \nA second string - note 'h'\
+                \nA third string - note 'g'\
+                \nA fourth string - note 'D'\
+                \nA fifth string - note 'H'\
+                \nA sixth string - note 'G'\
+                \nA sixth string - note 'D'"
+                )
+        else:
+            print(f"I don't know {self.string_number} string guitar.")
+
+strings = GuitarString(7)
+guitar = Guitar("Maestro", strings)
+print()
+
+
+# 3. Створіть клас з одним методом "add_nums" та 3 атрибутами, який повертає суму цих атрибутів.
+print("task 3.")
 class Calc:
-    """
-    Створіть клас з одним методом "add_nums" та 3 атрибутами, який повертає суму цих атрибутів.
-    """
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def add_nums(self):
+        return self.x + self.y + self.z
+
+addition = Calc(4, 5, 6)
+print(addition.add_nums())
+print()
 
 # 4*.
 class Pasta:
     """
-    Створіть клас, який приймає 1 атрибут при ініціалізації - ingredients і визначає інгридієнти атрибута екземпляра.
+    Створіть клас, який приймає 1 атрибут при ініціалізації - ingredients та визначає інгридієнти атрибута екземпляра.
     Він повинен мати 2 методи:
     carbonara (['forcemeat', 'tomatoes']) and bolognaise (['bacon', 'parmesan', 'eggs'])
     which should create Pasta instances with predefined list of ingredients.

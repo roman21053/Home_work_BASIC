@@ -84,7 +84,7 @@ print()
 print("task #11")
 fruit_dict = {'apples': apples, 'peaches': peaches}
 
-print(f"Anna has {fruit_dict.get('apples')} apples and {fruit_dict.get('apples')} peaches.")
+print(f"Anna has {fruit_dict.get('apples')} apples and {fruit_dict.get('peaches')} peaches.")
 print()
 
 
