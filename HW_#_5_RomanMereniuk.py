@@ -240,5 +240,4 @@ class Student:
 student_email = Student(5, 'Roman')
 student_email.email = '@.gmail.com'
 print(student_email.__dict__)
-getattr(student_email, 'email')
 print(getattr(student_email, 'email'))    
