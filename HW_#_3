@@ -8,8 +8,8 @@ dict_e = {'a': 1, 'b': 2, 'c': 3}
 
 variables = [int_a, str_b, set_c, lst_d, dict_e]
 
-for variabl in variables:
-    print(f"The id for variable {variabl} is: ", id(variabl))
+for variable in variables:
+    print(f"The id for variable {variable} is: ", id(variable))
 print()
 
 # 2. Append 4 and 5 to the lst_d and define the id one more time.
@@ -22,8 +22,8 @@ print()
 
 # 3. Define the type of each object from step 1.
 print("task #3")
-for variabl in variables:
-    print(f"The type of object {variabl} is: ", type(variabl))
+for variable in variables:
+    print(f"The type of object {variable} is: ", type(variable))
 print()
 
 

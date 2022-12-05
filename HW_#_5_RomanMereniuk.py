@@ -217,14 +217,14 @@ class AddressBook:
         self.age = age
 
     def __str__(self):
-        print(f"AddressBook(key={self.key}, name={self.name}, phone_number={self.phone_number}, address={self.address}, "
-              f"email={self.email}, birthday={self.birthday}, age={self.age})"
-              )
+        return(f"AddressBook(key={self.key}, name={self.name}, phone_number={self.phone_number}, address={self.address}, "
+               f"email={self.email}, birthday={self.birthday}, age={self.age})"
+               )
 
 
 address = AddressBook(2, 'roman', '0506512021', 'Lviv', '@gmail.com', 'not soon', 37)
 
-print(address.__str__())
+print(address)
 print()
 
 # 9.
