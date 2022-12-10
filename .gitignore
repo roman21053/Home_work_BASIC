@@ -1,5 +1,6 @@
 # Default ignored files
-.idea
-lerning
-.git
 .gitignore
+.idea
+.git
+lerning.py
+

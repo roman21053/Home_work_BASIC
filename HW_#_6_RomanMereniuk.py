@@ -96,53 +96,53 @@ print("Task #4")
 class Laptop(ABC):
 
     @abstractmethod
-    def Screen(self):
+    def screen(self):
         raise NotImplementedError
 
     @abstractmethod
-    def Keyboard(self):
+    def keyboard(self):
         raise NotImplementedError
 
     @abstractmethod
-    def Touchpad(self):
+    def touchpad(self):
         raise NotImplementedError
 
     @abstractmethod
-    def WebCam(self):
+    def webCam(self):
         raise NotImplementedError
 
     @abstractmethod
-    def Ports(self):
+    def ports(self):
         raise NotImplementedError
 
     @abstractmethod
-    def Dynamics(self):
+    def dynamics(self):
         raise NotImplementedError
 
 
 class HPLaptop(Laptop):
 
-    def Screen(self):
+    def screen(self):
         print("screen")
 
-    def Keyboard(self):
+    def keyboard(self):
         print("keyboard")
 
-    def Touchpad(self):
+    def touchpad(self):
         print("touchpad")
 
-    def WebCam(self):
+    def webCam(self):
         print("webCam")
 
-    def Ports(self):
+    def ports(self):
         print("ports")
 
-    def Dynamics(self):
+    def dynamics(self):
         print("dynamics")
 
 
 hpLaptop = HPLaptop()
-hpLaptop.Screen()
+hpLaptop.screen()
 print()
 
 # 5. Create an abstract class for the Car with the next methods: drive, stop, open_door, close_door, turn_on_light,
