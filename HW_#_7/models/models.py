@@ -1,4 +1,4 @@
-from framework.models import Model
+from model_abc import Model
 
 
 class Plant(Model):
