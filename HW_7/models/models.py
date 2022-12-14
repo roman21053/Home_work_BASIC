@@ -1,4 +1,4 @@
-from model_abc import Model
+from HW_7.models.model_abc import Model
 
 
 class Plant(Model):
@@ -16,4 +16,3 @@ class Employee(Model):
         self.name = name
         self.email = email
         self.plant_id = plant_id
-
