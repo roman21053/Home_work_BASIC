@@ -1,4 +1,4 @@
-from HW_7.models.model_abc import Model
+from model_abc import Model
 
 
 class Plant(Model):
@@ -15,4 +15,13 @@ class Employee(Model):
     def __init__(self, name, email, plant_id):
         self.name = name
         self.email = email
+        self.plant_id = plant_id
+
+
+class Salon(Model):
+    file = "salon.json"
+
+    def __init__(self, name, location, plant_id):
+        self.name = name
+        self.location = location
         self.plant_id = plant_id
