@@ -1,15 +1,15 @@
-import json
+from models.function import open_file, logs_to_csv, counter_open
 
-personal_info = {'name': 'Roman', 'citi': 'Lviv'}
 
-json_date = json.dumps(personal_info)
-json_dict = json.loads(json_date)
+# TASK 1
 
-json_dict['age'] = 37
-json_date = json.dumps(json_dict)
-print(json_date)
-with open('file.json') as file:
-    json.dump(json_dict, file)
-# with open('file.json', 'w') as file:
-#     json.dump(personal_info, file)
+open_file('file.txt')
+
+# TASK 2
+
+logs_to_csv()
+
+# TASK 3 (з зірочкою)
+
+counter_open()
 
