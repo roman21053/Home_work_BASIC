@@ -1,0 +1,6 @@
+1. Check if the "id" of the instance to be deleted is a number.          - in the file "controller.py" (def check_input_id(cls, id_instance))
+2. Checking if "plant_id" is a number when creating a new employee.      - in the file "controller.py" (def check_input_id(cls, id_instance))
+3. Check whether the name of the new employee consists only of letter.   - in the file "classes.py"(def check_name(self, name))
+4. Entered a number outside the menu range.                              - in the file "main.py"(if 1 < flag > 8:)
+5. Check if any data is entered (in methods 1, 2).                       - in the file "controller.py"(def check_input_date(cls, data))
+6. Check in methods 5, 6, 7, 8 whether there are instances with the given 'id'  - in the file "class_abc.py"(def delete(cls, id), def get_by_id(cls, id))

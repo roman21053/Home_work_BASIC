@@ -1,0 +1,1 @@
+1. Find and prevent other raising of errors in the code with try/except.
