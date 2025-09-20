@@ -2,10 +2,7 @@
 .gitignore
 .idea
 .git
-lerning.py
 HW_7.models.__pycache__/
 HW_8.models.__pycache__/
-HW_9.__pycache__/
 HW_9.models.__pycache__/
-/venv/
-/HW_11-Testing/.venv/
+HW_11-Testing.__pycache__/
