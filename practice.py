@@ -20,6 +20,12 @@ class Ukrainian(Human, Nationale):
 
 
 print(Ukrainian.mro())
-roman = Ukrainian('man', 'Roman', 'Mereniuk', 'Ukreinian', 'Zhudachiv')
+roman = Ukrainian(
+    'man', 
+    'Roman', 
+    'Mereniuk', 
+    'Ukreinian', 
+    'Zhudachiv'
+    )
 print(roman.sex)
 
