@@ -57,7 +57,7 @@ class School:
 
 # 6*. Створіть новий клас SchoolBus, який успадкує всі методи від School та Bus та матиме власний - bus_school_color
 
-class SchoolBus(Scool, Bus):
+class SchoolBus(School, Bus):
     def __init__(self):
         pass
 
