@@ -34,21 +34,21 @@ print(f'Does the Bus class inherit from the Vehicle class? - {audit}', end='\n\n
 # 4. Створіть екземпляр Bus під назвою school_bus та визначте, чи є school_bus об'єктом класу Vehicle/Bus
 print("Task 4. Створіть екземпляр Bus під назвою school_bus та визначте, чи є school_bus об'єктом класу Vehicle/Bus:", end='\n\t')
 
-scool_bus = Bus(80, 300)
+school_bus = Bus(80, 300)
 
-print(f'is school_bus an object of class Vehicle? - {isinstance(scool_bus, Vehicle)}', end='\n\t')
-print(f'is school_bus an object of class Bus? - {isinstance(scool_bus, Bus)}', end='\n')
+print(f'is school_bus an object of class Vehicle? - {isinstance(school_bus, Vehicle)}', end='\n\t')
+print(f'is school_bus an object of class Bus? - {isinstance(school_bus, Bus)}', end='\n')
 
 print()
 
 # 5. Створіть новий клас School з атрибутами екземпляра get_school_id та number_of_students та методами school_address, main_subject
         
-class Scool:
-    def __init__(self, get_scool_id, number_of_students):
-        self.get_scool_id = get_scool_id
+class School:
+    def __init__(self, get_school_id, number_of_students):
+        self.get_school_id = get_school_id
         self.number_of_students = number_of_students
 
-    def scool_addres(self):
+    def school_addres(self):
         pass
 
     def main_subject(self):
@@ -57,11 +57,11 @@ class Scool:
 
 # 6*. Створіть новий клас SchoolBus, який успадкує всі методи від School та Bus та матиме власний - bus_school_color
 
-class ScoolBus(Scool, Bus):
+class SchoolBus(Scool, Bus):
     def __init__(self):
         pass
 
-    def bus_scool_color(self):
+    def bus_school_color(self):
         pass
 
     
@@ -97,7 +97,7 @@ class City:
         cls.name = name
         cls.population = population
         if population > 1500:
-            return object.__new__(City)
+            return object().__new__(City)
         else:
             return "Your city is too small"
 
