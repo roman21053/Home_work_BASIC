@@ -2,92 +2,60 @@ from collections import namedtuple
 import dataclasses
 
 # 1. Make the class with composition.
-# Cуть задуму в тому, що в class Laptop створено об'єкти з рекомендаціями ємності акумуляторних батарей
-# для "ноутбуків" на базі class Battery. Коли я створюю об'єкт class Laptop і ввожу параметри ноубука, 
-# то отримую рекомендації з підбору ємності акумуляторної батареї. Деталізації структури тут не робив.
-print("task 1.")
-class Laptop:
-    def __init__(self, brand_of_laptop, screen_size):
-        self.brand_of_laptop = print(brand_of_laptop)
-        self.screen_size = print(f"{screen_size} inches")
-        inch_14 = Battery("battery for 14 inch screen - ", 45)
-        inch_15 = Battery("battery for 15 inch screen - ", 52)
-        inch_17 = Battery("battery for 17 inch screen - ", 62)
-        self.laptop = [f"{inch_14.text}{inch_14.battery_capacity} Wh",
-                       f"{inch_15.text}{inch_15.battery_capacity} Wh", 
-                       f"{inch_17.text}{inch_17.battery_capacity} Wh"
-                       ]
 
 
-class Battery:
-    def __init__(self, text, battery_capacity: int):
-        self.text = text
-        self.battery_capacity = battery_capacity
+class Tree:
+    def __init__(self, height: float, leaf, fruit='not fruit'):
+        self.height = {'height': height}
+        self.leaf = {'leaf', leaf}
+        self.fruit = {'fruit', fruit}
 
 
-laptop = Laptop("dell", 14)
-print(laptop.laptop)
-print()
+class Garden:
+    def __init__(self, area: float):
+        self.area = area
+        self.apple_tree = Tree(3.7, 'rounded', 'apple')
+        self.pear_tree = Tree(5, 'small and elongated', 'pear')
+
+
+my_garden = Garden(5)
 
 
 # 2. Make the class with aggregation
-# Cуть задуму в тому, що виводиться позначення нот для кожної налаштованої струни в гітарах з різною кількістю струн.
-print("task 2.")
 
 
-class Guitar:
-    def __init__(self, producer, number_of_strings):
-        self.producer = print(f"Guitar brand is - '{producer}'")
-        self.number_of_strings = number_of_strings
+class Laptop:
+    def __init__(self, brand):
+        self.brand = brand
 
 
-class GuitarString:
-    def __init__(self, string_number):
-        self.string_number = string_number
-        if self.string_number == 6:
-            print("""
-                A first string - note 'E'
-                A second string - note 'B'
-                A third string - note 'G'
-                A fourth string - note 'D'
-                A fifth string - note 'A'
-                A sixth string - note 'E'
-                """)
-        elif self.string_number == 7:
-            print("A first string - note 'd1'\
-                \nA second string - note 'h'\
-                \nA third string - note 'g'\
-                \nA fourth string - note 'D'\
-                \nA fifth string - note 'H'\
-                \nA sixth string - note 'G'\
-                \nA sixth string - note 'D'"
-                  )
-        else:
-            print(f"I don't know {self.string_number} string guitar.")
+class Devices:
+    def __init__(self, name, connection_type, connection_point):
+        self.name = name
+        self.connectio_type = connection_type
+        self.connectio_point = connection_point
 
 
-strings = GuitarString(7)
-guitar = Guitar("Maestro", strings)
-print()
+hp = Laptop('hp')
+printer = Devices('printer', 'USB', hp)
 
 
 # 3. Створіть клас з одним методом "add_nums" та 3 атрибутами, який повертає суму цих атрибутів.
 print("task 3.")
 
 
-class Calc:
-    def __init__(self, x, y, z):
+class Sum:
+    def __init__(self, x: float, y: float, z: float):
         self.x = x
         self.y = y
         self.z = z
 
     def add_nums(self):
         return self.x + self.y + self.z
+    
 
-
-addition = Calc(4, 5, 6)
-print(addition.add_nums())
-print()
+suma = Sum(2, 3, 5)
+print(suma.add_nums(), end='\n\n')
 
 # 4*.
 print("task 4.")
@@ -105,7 +73,6 @@ class Pasta:
         pasta_2 = Pasta.bolognaise()
         pasta_2.ingredients will equal to ['bacon', 'parmesan', 'eggs']
     """
-    ingredients = ['bacon', 'parmesan', 'eggs']
 
     def __init__(self, ingredients):
         self.ingredients = ingredients
@@ -140,26 +107,30 @@ class Concert:
         concert.visitors_count = 1000
         print(concert.visitors_count)  # 50
     """
-    max_visitor_num = 0
-    
-    __slots__ = ('visitors_count')
-       
-    def __setattr__(self, key, value):
-        if  value > Concert.max_visitor_num:
-            object.__setattr__(self, key, Concert.max_visitor_num)
+    max_visitors_num = 0
+
+    def __init__(self):
+        self.visitors_count = 0
+        if self.visitors_count > self.max_visitors_num:
+            self.visitors_count = self.max_visitors_num
+
+    def __setattr__(self, name, value):
+        if name == 'visitors_count':
+            if value > self.max_visitors_num:
+                self.visitors_count = self.max_visitors_num
+            else:
+                object.__setattr__(self, name, value)   
         else:
-            object.__setattr__(self, key, value)          
+            object.__setattr__(self, name, value)  
 
-
-Concert.max_visitor_num = 50
+            
+Concert.max_visitors_num = 50
 concert = Concert()
 concert.visitors_count = 1000
-print(concert.visitors_count)
-
+print(concert.visitors_count, end='\n\n')
 
 # 6. Create dataclass with 7 fields - key (int), name (str), phone_number (str),
 # address (str), email (str), birthday (str), age (int)
-print("task 6.")
 
 
 @dataclasses.dataclass
@@ -173,32 +144,13 @@ class AddressBookDataClass:
     age: int
 
 
-roman = AddressBookDataClass(5, 'Roman', '0506512021', '**********', 'roman21053@gmail.com', 'already passed', 37)
-print(roman.name)
-print()
 
 # 7. Create the same class (6) but using NamedTuple
-print("task 7.")
+
+AddressBookDataClass = namedtuple('AddressBookDataClass', ['key', 'name', 'phone_number', 'address', 'email', 'birthday', 'age'])
 
 
-AddresBookDataClass = namedtuple('AddresBookDataClass', ['key', 'name', 'phone_number', 'address', 'email', 'birthday', 'age'])
-
-roman_1 = AddresBookDataClass(2, 'roman', '0506512021', 'lviv', '@gmail.com', 'not soon', 37)
-print(roman_1._asdict())
-print(roman_1.key)
-print(roman_1[1])
-
-# додавання до NamedTuple ще одного атрибуту
-print('# додавання до NamedTuple ще одного атрибуту')
-AddresBookDataClass = namedtuple('AddresBookDataClass', AddresBookDataClass._fields + ('eye_colour',)) 
-
-roman_2 = AddresBookDataClass(2, 'roman', '0506512021', 'lviv', '@gmail.com', 'not soon', 37, 'brown')
-print(roman_2._asdict())
-print(roman_2.eye_colour)
-print()
-
-print("Task 8.")
-
+# 8.
 
 class AddressBook:
     """
@@ -217,19 +169,11 @@ class AddressBook:
         self.age = age
 
     def __str__(self):
-        return(f"AddressBook(key={self.key}, name={self.name}, phone_number={self.phone_number}, address={self.address}, "
-               f"email={self.email}, birthday={self.birthday}, age={self.age})"
-               )
+        return (f"AddressBook(key='{self.key}', name='{self.name}', phone_number='{self.phone_number}', address='{self.address}', email='{self.email}', birthday= '{self.birthday}', age='{self.age}')")
 
-
-address = AddressBook(2, 'roman', '0506512021', 'Lviv', '@gmail.com', 'not soon', 37)
-
-print(address)
-print()
 
 # 9.
 print("Task 9.")
-
 
 class Person:
     """
@@ -239,12 +183,9 @@ class Person:
     age = 36
     country = "USA"
 
+Person.age = 40
 
-roman = Person()
-print(roman.age)
-roman.age = 37
-print(roman.age)
-print()
+print(Person.age, end='\n\n')
 
 # 10.
 print("Task 10.")
@@ -263,7 +204,7 @@ class Student:
         self.name = name
 
 
-student_email = Student(5, 'Roman')
-student_email.email = '@.gmail.com'
-print(student_email.__dict__)
-print(getattr(student_email, 'email'))    
+roman = Student(1, 'Roman')
+roman.student_email = 'roman@gmail.com'
+
+print(getattr(roman, 'student_email'), end='\n\n')
