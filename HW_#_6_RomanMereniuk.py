@@ -23,127 +23,121 @@ print("Task #1")
 
 
 class FibonacciNumbers:
-    first_number = 0
-    second_number = 1
-    count = 0
-
-    def __init__(self, number_of_values: int):
-        self.number_of_values = number_of_values
-
+    def __init__(self, number: int):
+        self.number = number
+        self.counter = 1
+        self.x = 0
+        self.y = 1
+        self.z = 1
+        
     def __iter__(self):
-
         return self
-
+    
     def __next__(self):
-        if self.count == 0:
-            self.count += 1
-            return self.first_number
-        if self.count == 1:
-            self.count += 1
-            return self.second_number
-        if self.count < self.number_of_values:
-            self.count += 1
-            num_fibonacci = self.first_number + self.second_number
-            self.first_number = self.second_number
-            self.second_number = num_fibonacci
-            return num_fibonacci
+        if self.counter == 1:
+            self.counter += 1
+            return self.x
+        if 1 < self.counter <= self.number:
+            if self.x == 0:
+                self.x = self.y
+                self.y = self.z
+                self.z = self.x + self.y
+                self.counter += 1
+                return self.x
+            if self.x > 0:
+                self.x = self.y
+                self.y = self.z
+                self.z = self.x + self.y
+                self.counter += 1
+                return self.x
         else:
-            raise StopIteration
+            raise StopIteration    
 
-
-result = []
 for i in FibonacciNumbers(10):
-    result.append(i)
+    print(i, end=', ')
 
-print(result)
-print()
+print(end='\n\n')
+
 # 2.* Implement generator for Fibonacci numbers
 print("Task #2")
 
 
-def generator(number):
+def generator_Fibonacci(number):
     x, y = 0, 1
-    for num in range(number):
-        if num == 0:
+    for i in range(number + 1):
+        if i == 1:
             yield x
-        if num > 0:
+        if i > 1:
             x, y = y, x + y
             yield x
 
 
-list_fibonacci = []
-for i in generator(7):
-    list_fibonacci.append(i)
-print(list_fibonacci)
-print()
+for i in generator_Fibonacci(7):
+    print(i, end=', ')
 
+print(end='\n\n')
 
 # 3. Write generator expression that returns square numbers of integers from 0 to 10
 print("Task #3")
 
-
-gen_square_numbers = (f"{index} ** 2 = {index**2}" for index in range(11))
+gen_square_numbers = [i ** 2 for i in range(11)]
 
 for i in gen_square_numbers:
-    print(i)
-print()
+    print(i, end=', ')
+
+print(end='\n\n')
 
 # 4. Create an interface for the Laptop with the next methods: Screen, Keyboard, Touchpad, WebCam, Ports, Dynamics
 # and create an HPLaptop class by using your interface.
-print("Task #4")
 
 
 class Laptop(ABC):
-
+    
     @abstractmethod
-    def screen(self):
+    def Screen(self):
+        raise NotImplementedError
+    
+    @abstractmethod
+    def Keyboard(self):
+        raise NotImplementedError
+    
+    @abstractmethod
+    def Touchpad(self):
+        raise NotImplementedError
+    
+    @abstractmethod
+    def WebCam(self):
+        raise NotImplementedError
+    
+    @abstractmethod
+    def Ports(self):
+        raise NotImplementedError
+    
+    @abstractmethod
+    def Dynamics(self):
         raise NotImplementedError
 
-    @abstractmethod
-    def keyboard(self):
-        raise NotImplementedError
 
-    @abstractmethod
-    def touchpad(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def webCam(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def ports(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def dynamics(self):
-        raise NotImplementedError
-
-
-class HPLaptop(Laptop):
-
-    def screen(self):
-        print("screen")
-
-    def keyboard(self):
-        print("keyboard")
-
-    def touchpad(self):
-        print("touchpad")
-
-    def webCam(self):
-        print("webCam")
-
-    def ports(self):
-        print("ports")
-
-    def dynamics(self):
-        print("dynamics")
-
-
-hpLaptop = HPLaptop()
-hpLaptop.screen()
-print()
+class HpLaptop(Laptop):
+    
+    def Screen(self):
+        print('Screen')
+    
+    def Keyboard(self):
+        print('Keyboard')
+    
+    def Touchpad(self):
+        print('Touchpad')
+    
+    def WebCam(self):
+        print('WebCam')
+    
+    def Ports(self):
+        print('Ports')
+    
+    def Dynamics(self):
+        print('Dynamics')
+    
 
 # 5. Create an abstract class for the Car with the next methods: drive, stop, open_door, close_door, turn_on_light,
 # turn_off_light, enable_radio, disable_radio, where drive and stop will be predefined with some realization, all others
@@ -153,31 +147,32 @@ print()
 class Car(ABC):
 
     def drive(self):
-        print("drive")
+        print('drive')
 
     def stop(self):
-        print("stop")
-
+        print('stop')
+    
     @abstractmethod
     def open_door(self):
         raise NotImplementedError
-
+    
     @abstractmethod
     def close_door(self):
         raise NotImplementedError
-
+    
     @abstractmethod
     def turn_on_light(self):
         raise NotImplementedError
-
+    
     @abstractmethod
     def turn_off_light(self):
         raise NotImplementedError
-
+    
     @abstractmethod
     def enable_radio(self):
         raise NotImplementedError
-
+    
     @abstractmethod
     def disable_radio(self):
         raise NotImplementedError
+    
